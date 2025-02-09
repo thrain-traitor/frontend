@@ -22,7 +22,6 @@
               }"
             />
             
-            <!-- Chat Header -->
             <div class="flex gap-4 pt-4">
               <UAvatar size="xl" :src="activeTab.avatar" />
               <div class="h-full items-center">
@@ -33,7 +32,6 @@
           </div>
         </template>
 
-        <!-- Chat Room Content -->
         <div class="h-full flex flex-col">
           <!-- Messages Container (Scrollable) -->
           <UCard class="overflow-auto space-y-4 p-4 flex-1 max-h-[400px]">
@@ -60,7 +58,6 @@
             </template>
           </UCard>
 
-          <!-- Message Input (Non-scrollable) -->
           <UCard class="space-y-4">
             <form @submit.prevent="sendMessage">
               <UInput
