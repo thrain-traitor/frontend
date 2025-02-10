@@ -20,7 +20,7 @@
         </UDashboardSidebar>
       </UDashboardPanel>
       <UDashboardPanel grow class="flex flex-col min-h-screen">
-        <UDashboardNavbar>
+        <UDashboardNavbar>  
           <template #left>
             <div class="pt-1">
               {{ pageTitle }}
@@ -31,7 +31,7 @@
             <UButton icon="i-heroicons-swatch" size="sm" color="gray" variant="ghost" @click="isSidebarOpen = !isSidebarOpen"/>
           </template>
         </UDashboardNavbar>    
-        <div class="p-5 flex-grow overflow-auto">
+        <div class="flex overflow-auto">
           <slot/>
         </div>
       </UDashboardPanel>
