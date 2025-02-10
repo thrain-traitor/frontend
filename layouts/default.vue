@@ -31,18 +31,24 @@
             <UButton icon="i-heroicons-swatch" size="sm" color="gray" variant="ghost" @click="isSidebarOpen = !isSidebarOpen"/>
           </template>
         </UDashboardNavbar>    
-        <div class="flex overflow-auto">
+        <div class="flex h-screen overflow-auto">
           <slot/>
         </div>
       </UDashboardPanel>
     </UDashboardLayout>
-    <USlideover v-model="openNotifications">
-      <h3 class="m-5">Notification</h3>
+    <USlideover v-model="openNotifications" prevent-close>
+      <div class="flex px-4">
+        <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="my-4" @click="openNotifications = false" />
+        <h3 class="m-5">Color Menu</h3>
+      </div>
       <UDivider/>
       <EmailNotifications/>
     </USlideover>
-    <USlideover v-model="isSidebarOpen">
-      <h3 class="m-5">Color Menu</h3>
+    <USlideover v-model="isSidebarOpen" prevent-close>
+      <div class="flex px-4">
+        <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="my-4" @click="isSidebarOpen = false" />
+        <h3 class="m-5">Color Menu</h3>
+      </div>
         <UDivider/>
         <div class="p-3 flex flex-col gap-4">
         <UDashboardSidebarLinks :links="colorLinks" />

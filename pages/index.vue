@@ -4,10 +4,10 @@ definePageMeta({ layout: false })
 import axios from 'axios';
 
 const fields = [{
-  name: 'username',
+  name: 'email',
   type: 'text',
-  label: 'Username',
-  placeholder: 'Enter your username'
+  label: 'Email',
+  placeholder: 'Enter your email'
 }, {
   name: 'password',
   label: 'Password',
@@ -17,7 +17,7 @@ const fields = [{
 
 const validate = (state: any) => {
   const errors: FormError[] = []
-  if (!state.username) errors.push({ path: 'username', message: 'Username is required' })
+  if (!state.email) errors.push({ path: 'email', message: 'Email is required' })
   if (!state.password) errors.push({ path: 'password', message: 'Password is required' })
   return errors
 }
