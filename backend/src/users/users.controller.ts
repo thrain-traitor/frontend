@@ -30,12 +30,12 @@ export class UsersController {
 
   @Get(':id')
   findOne(@Param('id') id: number): Promise<User> {
-    return this.findOne(id);
+    return this.usersService.findOne(id);
   }
 
   @Put(':id')
   update(@Param('id') id: number, userData: Partial<User>): Promise<User> {
-    return this.update(id, userData);
+    return this.usersService.update(id, userData);
   }
 
   @Delete(':id')
