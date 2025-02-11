@@ -1,7 +1,5 @@
 <script setup lang="ts">
-import { sub, format, isSameDay, type Duration } from 'date-fns'
-import type { Form, FormSubmitEvent } from '#ui/types'
-import DateRange from '../../components/task/DateRange.vue'
+import type { Form } from '#ui/types'
 
 interface Schema {
   title?: string
@@ -19,8 +17,9 @@ const task = ref({
   deadline: ''
 })
 
-const selected = ref({ start: sub(new Date(), { days: 14 }), end: new Date() })
+const countries = ['United States', 'Canada', 'Mexico']
 
+const country = ref(countries[0])
 </script>
 
 <template>
@@ -37,8 +36,8 @@ const selected = ref({ start: sub(new Date(), { days: 14 }), end: new Date() })
               <UFormGroup label="Tanggal Dibuat">
                 <p class="text-gray-500">{{ createdAt }}</p>
               </UFormGroup>
-              <UFormGroup label="Tanggal Deadline">
-                <DateRange/>
+              <UFormGroup label="Tipe">
+                <USelect v-model="country" :options="countries" />
               </UFormGroup>
               <UFormGroup label="Priority">
                 <UCheckbox v-model="task.isPriority"/>

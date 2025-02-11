@@ -6,7 +6,7 @@ const selected = ref({ start: (new Date()), end: new Date() })
 </script>
 
 <template>
-  <UPopover>
+  <UPopover :popper="{ strategy: 'fixed' }">
     <UButton icon="i-heroicons-calendar-days-20-solid">
       {{ format(selected.start, 'd MMM, yyy') }} - {{ format(selected.end, 'd MMM, yyy') }}
     </UButton>

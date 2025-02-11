@@ -112,13 +112,21 @@ const links = [{
     text: 'Inbox',
     shortcuts: ['G', 'I']
   }},{
-  id: 'task',
-  label: 'Task',
+  id: 'notes',
+  label: 'Notes',
+  to: '/auth/notes',
   icon: 'i-ix:tasks-all',
-  to: '/auth/TaskPages',
+  children: [{
+    label: 'General',
+    to: '/auth/notes',
+    exact: true
+  }, {
+    label: 'Notes List',
+    to: '/auth/notes/NotesList'
+  }],
   tooltip: {
-    text: 'Task',
-    shortcuts: ['G', 'T']
+    text: 'notes',
+    shortcuts: ['G', 'N']
   }},{
   id: 'project',
   label: 'Project',
