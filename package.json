@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "dev:api": "ts-node ./backend/src/index.ts",
     "build": "nuxt build",
     "dev": "nuxt dev",
     "generate": "nuxt generate",
