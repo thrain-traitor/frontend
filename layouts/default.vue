@@ -4,6 +4,9 @@
       <UDashboardPanel :resizable="{ min: 270, max: 300 }" collapsible>
         <UDashboardNavbar>
           <template #left>
+            <div class="pt-1">
+              <p>Welcome back</p>
+            </div>
           </template>
         </UDashboardNavbar>
         <UDashboardSidebar>
@@ -119,7 +122,7 @@ const links = [{
   }},{
   id: 'project',
   label: 'Project',
-  to: '/auth/ProjectGeneral',
+  to: '/auth/ProjectPages',
   icon: 'i-ix:project-scenarios',
   tooltip: {
     text: 'Project',
@@ -127,7 +130,7 @@ const links = [{
   }},{
   id: 'file',
   label: 'File Manager',
-  to: '/auth/File Manager',
+  to: '/auth/FileManagerPages',
   icon: 'i-material-symbols:folder-shared',
   tooltip: {
     text: 'File Manager',
