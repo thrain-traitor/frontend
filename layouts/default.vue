@@ -142,14 +142,14 @@ const links = [{
   collapsible: true,
   children: [{
     label: 'General',
-    to: 'auth/settings/GeneralSett',
+    to: '/auth/settings/GeneralSett',
     exact: true,
   }, {
     label: 'Members',
-    to: 'auth/settings/MemberSett'
+    to: '/auth/settings/MemberSett'
   }, {
     label: 'Notifications',
-    to: 'auth/settings/NotificationsSett'
+    to: '/auth/settings/NotificationSett'
   }],
 }];
 
