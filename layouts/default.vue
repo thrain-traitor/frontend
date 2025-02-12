@@ -39,7 +39,7 @@
         </div>
       </UDashboardPanel>
     </UDashboardLayout>
-    <USlideover v-model="openNotifications" prevent-close>
+    <USlideover v-model="openNotifications">
       <div class="flex px-4">
         <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="my-4" @click="openNotifications = false" />
         <h3 class="m-5">Color Menu</h3>
@@ -47,7 +47,7 @@
       <UDivider/>
       <EmailNotifications/>
     </USlideover>
-    <USlideover v-model="isSidebarOpen" prevent-close>
+    <USlideover v-model="isSidebarOpen">
       <div class="flex px-4">
         <UButton color="gray" variant="ghost" icon="i-heroicons-x-mark-20-solid" class="my-4" @click="isSidebarOpen = false" />
         <h3 class="m-5">Color Menu</h3>
@@ -60,7 +60,7 @@
       </div>
     </USlideover>
     <ClientOnly>
-      <LazyUDashboardSearch :groups="groups" />
+      <LazyUDashboardSearch :groups="groups"/>
     </ClientOnly>
   </div>
 </template>
@@ -83,7 +83,6 @@ const pageTitle = computed(() => {
     .map(segment => segment.charAt(0).toUpperCase() + segment.slice(1))
     .join(' - ') || 'Dashboard';
 });
-
 
 const footerLinks = [{
   label: 'Invite people',
