@@ -59,7 +59,6 @@ async function onSubmit(event: FormSubmitEvent<any>) {
           description="Will appear on receipts, invoices, and other communication."
           required
           class="grid grid-cols-2 gap-2 items-center"
-          :ui="{ container: '' }"
         >
           <UInput
             v-model="state.title"

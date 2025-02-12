@@ -12,16 +12,6 @@ const links = [[{
   label: 'Notifications',
   icon: 'i-heroicons-bell',
   to: '/auth/settings/notifications'
-}], [{
-  label: 'Documentation',
-  icon: 'i-heroicons-book-open',
-  to: 'https://ui.nuxt.com/pro',
-  target: '_blank'
-}, {
-  label: 'Buy now',
-  icon: 'i-heroicons-credit-card',
-  to: 'https://ui.nuxt.com/pro/purchase',
-  target: '_blank'
 }]]
 </script>
 

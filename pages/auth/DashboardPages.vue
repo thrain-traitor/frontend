@@ -1,8 +1,9 @@
 <template>
-  <DashboardStats/>
-  <div class="flex gap-5">
-    <DashboardUser/>
-  </div>
+  <UDashboardPage>
+    <div class="p-5">
+      
+    </div>
+  </UDashboardPage>
 </template>
 
 <script setup lang="ts">

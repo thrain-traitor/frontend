@@ -5,9 +5,9 @@ const links = [[{
   to: '/auth/notes',
   exact: true
 }, {
-  label: 'Note List',
+  label: 'List',
   icon: 'i-material-symbols:notes-rounded',
-  to: '/auth/notes/NotesList'
+  to: '/auth/notes/list'
 }]]
 </script>
 

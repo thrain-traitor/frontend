@@ -87,7 +87,7 @@ const pageTitle = computed(() => {
 const footerLinks = [{
   label: 'Invite people',
   icon: 'i-heroicons-plus',
-  to: '/settings/members'
+  to: '/auth/settings/members'
 }, {
   label: 'Help & Support',
   icon: 'i-heroicons-question-mark-circle',
@@ -120,8 +120,8 @@ const links = [{
     to: '/auth/notes',
     exact: true
   }, {
-    label: 'Notes List',
-    to: '/auth/notes/NotesList'
+    label: 'List',
+    to: '/auth/notes/list'
   }],
   tooltip: {
     text: 'notes',
