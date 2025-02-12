@@ -46,11 +46,11 @@ async function onSubmit(event: FormSubmitEvent<any>) {
       @submit="onSubmit"
     >
       <UDashboardSection
-        title="Notes Daily"
+        title="Notes"
         description="This information will be displayed publicly so be careful what you share."
       >
         <template #links>
-          <UButton type="submit" label="Save changes"/>
+          <UButton color="black" type="submit" label="Save changes"/>
           <UButton color="red" label="Delete" @click="isDeleteAccountModalOpen = true"/>
         </template>
         <UFormGroup

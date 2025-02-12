@@ -1,7 +1,10 @@
 <script setup lang="ts">
 import type { FormError } from '#ui/types'
+
 definePageMeta({ layout: false })
-import axios from 'axios';
+
+const router = useRouter()
+const userToken = useState<string | null>('userToken', () => null)
 
 const fields = [{
   name: 'email',
@@ -24,10 +27,23 @@ const validate = (state: any) => {
 
 async function onSubmit(data: any) {
   try {
-    const response = await axios.post('', data)
-    console.log('login success:', response.data)
+    const { data: response, error } = await useFetch<{ token: string }>('http://localhost:3000/api/login', {
+      method: 'POST',
+      body: data
+    })
+
+    if (error.value) {
+      console.error('Login error:', error.value)
+      return
+    }
+
+    console.log('Login success:', response.value)
+
+    userToken.value = response.value?.token ?? null
+
+    router.push('/auth/DashboardPages')
   } catch (error) {
-    console.error('error', error)
+    console.error('Unexpected error:', error)
   }
 }
 </script>
@@ -35,17 +51,16 @@ async function onSubmit(data: any) {
 <template>
   <div class="flex justify-center h-screen items-center">
     <UCard class="max-w-sm w-full">
-    <UAuthForm
-      :fields="fields"
-      :validate="validate"
-      title="Welcome back!"
-      align="top"
-      icon="i-heroicons-lock-closed"
-      :ui="{ base: 'text-center', footer: 'text-center' }"
-      @submit="onSubmit"
-    >
-    </UAuthForm>
-  </UCard>
+      <UAuthForm
+        :fields="fields"
+        :validate="validate"
+        title="Welcome back!"
+        align="top"
+        icon="i-heroicons-lock-closed"
+        :ui="{ base: 'text-center', footer: 'text-center' }"
+        @submit="onSubmit"
+      >
+      </UAuthForm>
+    </UCard>
   </div>
 </template>
-
