@@ -30,7 +30,9 @@ const attrs = {
   'borderless': true,
   'color': 'primary',
   'is-dark': { selector: 'html', darkClass: 'dark' },
-  'first-day-of-week': 2
+  'first-day-of-week': 2,
+  'columns': window.innerWidth < 640 ? 1 : 1, // Adjust columns for mobile
+  'rows': window.innerWidth < 640 ? 1 : 1 // Adjust rows for mobile
 }
 
 function onDayClick(_: any, event: MouseEvent): void {
@@ -40,22 +42,36 @@ function onDayClick(_: any, event: MouseEvent): void {
 </script>
 
 <template>
-  <VCalendarDatePicker
-    v-if="date && (date as DatePickerRangeObject)?.start && (date as DatePickerRangeObject)?.end"
-    v-model.range="date"
-    :columns="2"
-    v-bind="{ ...attrs, ...$attrs }"
-    @dayclick="onDayClick"
-  />
-  <VCalendarDatePicker
-    v-else
-    v-model="date"
-    v-bind="{ ...attrs, ...$attrs }"
-    @dayclick="onDayClick"
-  />
+  <div class="datepicker-container">
+    <VCalendarDatePicker
+      v-if="date && (date as DatePickerRangeObject)?.start && (date as DatePickerRangeObject)?.end"
+      v-model.range="date"
+      v-bind="{ ...attrs, ...$attrs }"
+      @dayclick="onDayClick"
+    />
+    <VCalendarDatePicker
+      v-else
+      v-model="date"
+      v-bind="{ ...attrs, ...$attrs }"
+      @dayclick="onDayClick"
+    />
+  </div>
 </template>
 
 <style>
+.datepicker-container {
+  max-width: 100%;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 640px) {
+  .vc-container {
+    width: 100%;
+    max-width: 350px;
+  }
+}
 :root {
   --vc-gray-50: rgb(var(--color-gray-50));
   --vc-gray-100: rgb(var(--color-gray-100));

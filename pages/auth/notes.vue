@@ -1,12 +1,12 @@
 <script setup lang="ts">
 const links = [[{
   label: 'General',
-  icon: 'i-heroicons-user-circle',
+  icon: 'i-material-symbols:add-notes',
   to: '/auth/notes',
   exact: true
 }, {
   label: 'Note List',
-  icon: 'i-heroicons-user-group',
+  icon: 'i-material-symbols:notes-rounded',
   to: '/auth/notes/NotesList'
 }]]
 </script>
