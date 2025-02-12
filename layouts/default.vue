@@ -173,7 +173,7 @@ const groups = [{
     label: 'View page source',
     icon: 'i-simple-icons-github',
     click: () => {
-      window.open(`${route.path === '/' ? '/index' : route.path}.vue`, '_blank')
+      window.open(`https://github.com/thrain-traitor/frontend`, '_blank')
     }
   }]
 }];

@@ -51,7 +51,7 @@ async function onSubmit(event: FormSubmitEvent<any>) {
       >
         <template #links>
           <UButton type="submit" label="Save changes"/>
-          <UButton color="red" label="Delete" size="md" @click="isDeleteAccountModalOpen = true"/>
+          <UButton color="red" label="Delete" @click="isDeleteAccountModalOpen = true"/>
         </template>
         <UFormGroup
           name="title"
