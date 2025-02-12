@@ -1,11 +1,12 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UsersModule } from './users/users.module';
-import { ProfilesModule } from './profiles/profiles.module';
-import { User } from './users/user.entity';
-import { Profile } from './profiles/profile.entity';
+import { UserModule } from './user/user.module';
+import { ProfileModule } from './profile/profile.module';
+import { AuthModule } from './auth/auth.module';
+import { JwtMiddleware } from './middlewares/jwt.middleware';
+import { JwtModule } from '@nestjs/jwt';
 
 @Module({
   imports: [
@@ -17,13 +18,22 @@ import { Profile } from './profiles/profile.entity';
       password: 'ferdi123',
       database: 'db_collab',
       autoLoadEntities: true,
-      entities: [User, Profile],
+      entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true, // Hanya untuk development
     }),
-    UsersModule,
-    ProfilesModule,
+    UserModule,
+    ProfileModule,
+    AuthModule,
+    JwtModule.register({
+      secret: 'RahasiaKitaBerdua',
+      signOptions: { expiresIn: '1d' },
+    }),
   ],
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(JwtMiddleware).exclude('/api/auth/login').forRoutes('*');
+  }
+}

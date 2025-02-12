@@ -1,4 +1,4 @@
-import { Profile } from 'src/profiles/profile.entity';
+import { Profile } from 'src/profile/profile/profile.entity';
 import {
   Column,
   Entity,
@@ -12,16 +12,16 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  username: string;
-
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
   password: string;
 
-  @OneToOne(() => Profile, { cascade: true }) // cascade agar otomatis buat profile
+  @Column({ default: 0 })
+  is_admin: boolean;
+
+  @OneToOne(() => Profile, (profile) => profile.user, { cascade: true })
   @JoinColumn()
   profile: Profile;
 }
