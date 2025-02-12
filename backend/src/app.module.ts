@@ -14,8 +14,8 @@ import { JwtModule } from '@nestjs/jwt';
       type: 'mysql',
       host: 'localhost',
       port: 3306,
-      username: 'ferdi', // Sesuaiin username sama passwordnya
-      password: 'ferdi123',
+      username: 'root', // Sesuaiin username sama passwordnya
+      password: 'ususgysjjsu7',
       database: 'db_collab',
       autoLoadEntities: true,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],

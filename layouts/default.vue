@@ -145,18 +145,19 @@ const links = [{
   }},{
   id: 'settings',
   label: 'Settings',
+  to: '/auth/settings',
   icon: 'i-heroicons-cog-8-tooth',
   collapsible: true,
   children: [{
     label: 'General',
-    to: '/auth/settings/GeneralSett',
+    to: '/auth/settings',
     exact: true,
   }, {
     label: 'Members',
-    to: '/auth/settings/MemberSett'
+    to: '/auth/settings/members'
   }, {
     label: 'Notifications',
-    to: '/auth/settings/NotificationSett'
+    to: '/auth/settings/notifications'
   }],
 }];
 
