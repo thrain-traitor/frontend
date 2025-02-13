@@ -24,7 +24,6 @@ const filteredMembers = computed(() => {
       <template #links>
         <UButton
           label="Invite people"
-          color="black"
           @click="isInviteModalOpen = true"
         />
       </template>

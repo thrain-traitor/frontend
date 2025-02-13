@@ -85,10 +85,6 @@ const pageTitle = computed(() => {
 });
 
 const footerLinks = [{
-  label: 'Invite people',
-  icon: 'i-heroicons-plus',
-  to: '/auth/settings/members'
-}, {
   label: 'Help & Support',
   icon: 'i-heroicons-question-mark-circle',
 }]

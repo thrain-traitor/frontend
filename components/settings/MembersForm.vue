@@ -4,19 +4,20 @@ import type { FormError, FormSubmitEvent } from '#ui/types'
 const emit = defineEmits(['close'])
 
 const state = reactive({
-  role: 'member',
-  email: undefined
+  username: undefined,
+  email: undefined,
+  password: undefined
 })
 
-// https://ui.nuxt.com/components/form
 const validate = (state: any): FormError[] => {
   const errors = []
+  if (!state.username) errors.push({ path: 'username', message: 'Please enter an username.' })
   if (!state.email) errors.push({ path: 'email', message: 'Please enter an email.' })
+  if (!state.password) errors.push({ path: 'password', message: 'Please enter a password.' })
   return errors
 }
 
 async function onSubmit(event: FormSubmitEvent<any>) {
-  // Do something with data
   console.log(event.data)
 
   emit('close')
@@ -31,6 +32,18 @@ async function onSubmit(event: FormSubmitEvent<any>) {
     class="space-y-4"
     @submit="onSubmit"
   >
+
+  <UFormGroup
+      label="Username"
+      name="username"
+    >
+      <UInput
+        v-model="state.username"
+        type="username"
+        placeholder="Enter your username"
+      />
+    </UFormGroup>
+
     <UFormGroup
       label="Email"
       name="email"
@@ -44,13 +57,13 @@ async function onSubmit(event: FormSubmitEvent<any>) {
     </UFormGroup>
 
     <UFormGroup
-      label="Role"
-      name="role"
+      label="Password"
+      name="password"
     >
-      <USelectMenu
-        v-model="state.role"
-        :options="['member', 'owner']"
-        :ui-menu="{ select: 'capitalize', option: { base: 'capitalize' } }"
+      <UInput
+        v-model="state.password"
+        type="password"
+        placeholder="Enter your password"
       />
     </UFormGroup>
 
@@ -64,7 +77,6 @@ async function onSubmit(event: FormSubmitEvent<any>) {
       <UButton
         type="submit"
         label="Save"
-        color="black"
       />
     </div>
   </UForm>
