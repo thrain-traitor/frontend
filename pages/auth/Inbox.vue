@@ -41,7 +41,6 @@ const isMailPanelOpen = computed({
   }
 })
 
-// Reset selected mail if it's not in the filtered mails
 watch(filteredMails, () => {
   if (!filteredMails.value.find(mail => mail.id === selectedMail.value?.id)) {
     selectedMail.value = null
@@ -57,7 +56,6 @@ watch(filteredMails, () => {
       :resizable="{ min: 300, max: 500 }"
     >
 
-      <!-- ~/components/inbox/InboxList.vue -->
       <InboxList
         v-model="selectedMail"
         :mails="filteredMails"

@@ -97,7 +97,7 @@ const links = [{
   id: 'home',
   label: 'Home',
   icon: 'i-heroicons-home',
-  to: '/auth/DashboardPages',
+  to: '/auth/Dashboard',
   tooltip: {
     text: 'Home',
     shortcuts: ['G', 'H']
@@ -105,7 +105,7 @@ const links = [{
   id: 'inbox',
   label: 'Inbox',
   icon: 'i-heroicons-inbox',
-  to: '/auth/InboxPages',
+  to: '/auth/Inbox',
   badge: '4',
   tooltip: {
     text: 'Inbox',
@@ -129,18 +129,10 @@ const links = [{
   }},{
   id: 'project',
   label: 'Project',
-  to: '/auth/ProjectPages',
+  to: '/auth/Projects',
   icon: 'i-ix:project-scenarios',
   tooltip: {
     text: 'Project',
-    shortcuts: ['P', 'T']
-  }},{
-  id: 'file',
-  label: 'File Manager',
-  to: '/auth/FileManagerPages',
-  icon: 'i-material-symbols:folder-shared',
-  tooltip: {
-    text: 'File Manager',
     shortcuts: ['P', 'T']
   }},{
   id: 'settings',
